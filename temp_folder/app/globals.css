@@ -17,22 +17,16 @@
 }
 
 body {
-  --background: #fbfbfa;
-  --foreground: #1a1a1a;
-  --muted: rgba(26, 26, 26, 0.64);
-  --border: rgba(26, 26, 26, 0.12);
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter);
 }
 
-/* Helps avoid layout shifts for fixed/absolute overlays. */
 html,
 body {
   height: 100%;
 }
 
-/* Subtle paper grain texture */
 body::before {
   content: "";
   position: fixed;
@@ -44,7 +38,6 @@ body::before {
   mix-blend-mode: multiply;
 }
 
-/* Hero text fade-in on initial load (no JS needed). */
 .fade-in {
   opacity: 0;
   transform: translateY(6px);
@@ -79,7 +72,6 @@ body::before {
   }
 }
 
-/* Entire hero appearance animation (smooth + minimal). */
 .hero-enter {
   opacity: 0;
   transform: translateY(10px);
@@ -101,13 +93,4 @@ body::before {
     opacity: 1 !important;
     transform: none !important;
   }
-}
-
-/* The light theme tokens must be defined on `:root` (not `::root`). */
-:root {
-  --background: #ffffff;
-  --foreground: #0b0b0c;
-  --muted: rgba(11, 11, 12, 0.66);
-  --border: rgba(11, 11, 12, 0.12);
-  --accent: #6dff5b;
 }
