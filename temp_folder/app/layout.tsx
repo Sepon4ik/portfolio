@@ -16,7 +16,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Performance at Scale",
   description:
-    "C-level portfolio focused on systems performance, reliability, and shipping velocity.",
+    "Portfolio focused on scaling teams, systems, and delivery with discipline.",
 };
 
 export default function RootLayout({

@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd temp_folder && npm run build",
+  "installCommand": "cd temp_folder && npm install",
+  "outputDirectory": "temp_folder/.next",
+  "framework": "nextjs"
+}

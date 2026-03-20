@@ -34,12 +34,12 @@ export default function Home() {
                 Performance at Scale
               </h1>
               <p className="mt-6 max-w-3xl text-[15px] leading-relaxed sm:text-base text-[rgba(26,26,26,0.72)]">
-                From National Water Polo Captain to Gamedev Scale-up Leader (25 to 200+)
+                From Elite Sport Captaincy to Scale-up Leader in Gamedev (25 to 200+)
               </p>
             </div>
 
             <div className="flex w-full items-start justify-center md:justify-end">
-              <div className="relative flex w-full max-w-[360px] overflow-hidden rounded-[26px] border border-black/6 bg-[#fbfbfa] aspect-[3/4]">
+              <div className="relative flex w-full max-w-[360px] overflow-hidden rounded-[26px] border border-black/10 bg-[#fbfbfa] aspect-[3/4]">
                 <Image
                   src="/profile.png"
                   alt="Portrait"
@@ -58,17 +58,12 @@ export default function Home() {
             <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-black/60">
               About
             </div>
-
             <div className="mt-10 grid gap-12 sm:grid-cols-[1.1fr_0.9fr] items-start">
-              <div>
-                <p className="font-serif text-[17px] leading-relaxed text-[#1a1a1a]/90">
-                  15+ years of experience across art, animation, and sound-driven production pipelines — with a focus on shipping
-                  reliably at scale.
-                </p>
-              </div>
-
+              <p className="font-serif text-[17px] leading-relaxed text-[#1a1a1a]/90">
+                15+ years of experience across art, animation, and sound-driven production pipelines - with a focus on shipping reliably at scale.
+              </p>
               <blockquote className="font-serif italic text-[22px] leading-[1.25] tracking-tight text-[#1a1a1a]/90">
-                “Architecting seamless pipelines where Art, Animation, and Sound converge”
+                &ldquo;Architecting seamless pipelines where Art, Animation, and Sound converge&rdquo;
               </blockquote>
             </div>
           </div>
@@ -76,10 +71,8 @@ export default function Home() {
 
         <section id="evolution" className="scroll-mt-24 py-20 sm:py-28">
           <div className="mx-auto w-full max-w-5xl px-6">
-            <div className="flex items-end justify-between gap-6">
-              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-black/60">
-                The Evolution
-              </div>
+            <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-black/60">
+              The Evolution
             </div>
 
             <div className="mt-14 grid gap-10 sm:grid-cols-3">
@@ -91,21 +84,17 @@ export default function Home() {
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-black/60">
                     The Captaincy (Education)
                   </div>
-                  <p className="mt-4 font-serif text-base leading-relaxed text-[#1a1a1a]">
+                  <p className="mt-4 font-serif text-base leading-relaxed">
                     Belarussian State University of Physical Culture
                   </p>
                   <ul className="mt-5 space-y-3 text-[14px]">
                     <li className="flex gap-3">
                       <span className="mt-2 h-1.5 w-1.5 rounded-full bg-black/35" />
-                      <span className="font-serif leading-relaxed">
-                        High-Performance Team Leadership
-                      </span>
+                      <span className="font-serif leading-relaxed">High-Performance Team Leadership</span>
                     </li>
                     <li className="flex gap-3">
                       <span className="mt-2 h-1.5 w-1.5 rounded-full bg-black/35" />
-                      <span className="font-serif leading-relaxed">
-                        Emotional Intelligence
-                      </span>
+                      <span className="font-serif leading-relaxed">Emotional Intelligence</span>
                     </li>
                   </ul>
                 </div>
@@ -119,10 +108,8 @@ export default function Home() {
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-black/60">
                     The Precision (Sales Director)
                   </div>
-                  <p className="mt-4 font-serif text-base leading-relaxed text-[#1a1a1a]">
-                    Active Life Technologies
-                  </p>
-                  <p className="mt-3 font-serif text-base leading-relaxed text-[#1a1a1a]">
+                  <p className="mt-4 font-serif text-base leading-relaxed">Active Life Technologies</p>
+                  <p className="mt-3 font-serif text-base leading-relaxed">
                     Managed a 50-person team and optimized sales + logistics chains to keep B2B pipelines predictable.
                   </p>
                 </div>
@@ -136,10 +123,8 @@ export default function Home() {
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-black/60">
                     The Scale (General Manager)
                   </div>
-                  <p className="mt-4 font-serif text-base leading-relaxed text-[#1a1a1a]">
-                    RedBark Game Studio
-                  </p>
-                  <p className="mt-3 font-serif text-base leading-relaxed text-[#1a1a1a]">
+                  <p className="mt-4 font-serif text-base leading-relaxed">RedBark Game Studio</p>
+                  <p className="mt-3 font-serif text-base leading-relaxed">
                     Scaled the studio from startup into a mature organization, keeping 90%+ of the team through growth phases.
                   </p>
                   <EvolutionScaleChart />
@@ -155,15 +140,9 @@ export default function Home() {
               Skills
             </div>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-none border-t border-black/10 pt-4">
-                <div className="font-serif text-[18px] leading-tight">Studio Scaling</div>
-              </div>
-              <div className="rounded-none border-t border-black/10 pt-4">
-                <div className="font-serif text-[18px] leading-tight">Full-cycle Game Dev</div>
-              </div>
-              <div className="rounded-none border-t border-black/10 pt-4">
-                <div className="font-serif text-[18px] leading-tight">Stakeholder Management</div>
-              </div>
+              <div className="border-t border-black/10 pt-4 font-serif text-[18px]">Studio Scaling</div>
+              <div className="border-t border-black/10 pt-4 font-serif text-[18px]">Full-cycle Game Dev</div>
+              <div className="border-t border-black/10 pt-4 font-serif text-[18px]">Stakeholder Management</div>
             </div>
           </div>
         </section>
@@ -174,7 +153,7 @@ export default function Home() {
               Portfolio
             </div>
             <div className="mt-10 font-serif text-[22px] leading-[1.25] tracking-tight">
-              RoomScapes — key case
+              RoomScapes - key case
             </div>
           </div>
         </section>
@@ -194,46 +173,32 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="contact"
-          className="scroll-mt-24 pb-24 pt-6 sm:pt-0"
-        >
+        <section id="contact" className="scroll-mt-24 pb-24 pt-6 sm:pt-0">
           <div className="mx-auto w-full max-w-5xl px-6">
             <footer className="border-t border-black/10 pt-10">
               <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-black/60">
                 Contact
               </div>
 
-              <div className="mt-8">
-                <div className="group relative inline-block">
-                  <a
-                    href={`mailto:${email}`}
-                    className="font-serif text-[clamp(2.1rem,4.8vw,3.4rem)] leading-[1.05] font-semibold tracking-tight text-[#1a1a1a] transition-colors"
-                  >
-                    {email}
-                  </a>
-                  <span className="pointer-events-none absolute left-0 right-0 top-[calc(100%-0.1em)] h-[1px] bg-black/35 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-                </div>
+              <div className="mt-8 group relative inline-block">
+                <a
+                  href={`mailto:${email}`}
+                  className="font-serif text-[clamp(2.1rem,4.8vw,3.4rem)] leading-[1.05] font-semibold tracking-tight text-[#1a1a1a]"
+                >
+                  {email}
+                </a>
+                <span className="pointer-events-none absolute left-0 right-0 top-[calc(100%-0.1em)] h-[1px] bg-black/35 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
               </div>
 
               <div className="mt-6 text-[13px] text-black/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <div>
-                  <span className="font-mono uppercase tracking-[0.18em] text-[11px] text-black/45">
-                    Location
-                  </span>
+                  <span className="font-mono uppercase tracking-[0.18em] text-[11px] text-black/45">Location</span>
                   <div className="mt-2 font-serif">{location}</div>
                 </div>
                 <div>
-                  <span className="font-mono uppercase tracking-[0.18em] text-[11px] text-black/45">
-                    Telegram
-                  </span>
+                  <span className="font-mono uppercase tracking-[0.18em] text-[11px] text-black/45">Telegram</span>
                   <div className="mt-2">
-                    <a
-                      href={telegramUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="font-serif transition-colors hover:text-black/70"
-                    >
+                    <a href={telegramUrl} target="_blank" rel="noreferrer" className="font-serif transition-colors hover:text-black/70">
                       {telegram}
                     </a>
                   </div>
@@ -255,4 +220,3 @@ export default function Home() {
     </div>
   );
 }
-

@@ -18,17 +18,14 @@ export default function SmoothScroll() {
       lenis.raf(time);
       rafId = window.requestAnimationFrame(raf);
     };
-
     rafId = window.requestAnimationFrame(raf);
 
     const onClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       const link = target?.closest?.('a[href^="#"]') as HTMLAnchorElement | null;
       if (!link) return;
-
       const hash = link.getAttribute("href");
       if (!hash || hash === "#") return;
-
       const el = document.querySelector(hash);
       if (!el) return;
 
@@ -36,7 +33,6 @@ export default function SmoothScroll() {
       history.pushState(null, "", hash);
       lenis.scrollTo(el as HTMLElement, { offset: -HEADER_OFFSET_PX });
     };
-
     document.addEventListener("click", onClick);
 
     return () => {
@@ -48,4 +44,3 @@ export default function SmoothScroll() {
 
   return null;
 }
-

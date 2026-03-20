@@ -5,7 +5,6 @@
   --foreground: #1a1a1a;
   --muted: rgba(26, 26, 26, 0.64);
   --border: rgba(26, 26, 26, 0.12);
-  --accent: #6dff5b;
 }
 
 @theme inline {
@@ -27,6 +26,7 @@ body {
   height: 100%;
 }
 
+/* subtle paper grain */
 body::before {
   content: "";
   position: fixed;
@@ -36,40 +36,6 @@ body::before {
   opacity: 0.07;
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27240%27%20height%3D%27240%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.9%27%20numOctaves%3D%273%27%20stitchTiles%3D%27stitch%27/%3E%3C/filter%3E%3Crect%20width%3D%27240%27%20height%3D%27240%27%20filter%3D%27url(%23n)%27%20opacity%3D%270.45%27/%3E%3C/svg%3E");
   mix-blend-mode: multiply;
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(6px);
-  animation: fadeInUp 900ms ease-out forwards;
-}
-
-.fade-in-delay-1 {
-  animation-delay: 120ms;
-}
-
-.fade-in-delay-2 {
-  animation-delay: 220ms;
-}
-
-.photo-fade {
-  opacity: 0;
-  transform: translateY(8px) scale(0.995);
-  animation: photoFadeIn 900ms ease-out forwards;
-}
-
-@keyframes photoFadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .hero-enter {
@@ -86,9 +52,7 @@ body::before {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-enter,
-  .fade-in,
-  .photo-fade {
+  .hero-enter {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
