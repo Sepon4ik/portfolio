@@ -6,3 +6,7 @@ node_modules
 *.log
 .env*.local
 .DS_Store
+
+# Локальные артефакты / дубликаты проекта
+temp_folder
+.node
