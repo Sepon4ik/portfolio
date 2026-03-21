@@ -8,8 +8,20 @@
   color-scheme: dark;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   @apply bg-[#0a0a0a] text-zinc-100 antialiased;
+  overflow-x: hidden;
+}
+
+/* Нижний отступ под фиксированный Telegram FAB + safe-area iOS */
+@media (max-width: 1023px) {
+  .site-mobile-fab-pad {
+    padding-bottom: max(5.5rem, calc(4.5rem + env(safe-area-inset-bottom, 0px)));
+  }
 }
 
 @keyframes drift {

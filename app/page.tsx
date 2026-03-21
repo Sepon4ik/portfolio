@@ -69,7 +69,7 @@ export default function Home() {
 
   return (
     <main
-      className={`${inter.className} relative min-h-screen bg-transparent text-zinc-100`}
+      className={`${inter.className} site-mobile-fab-pad relative min-h-screen max-w-[100vw] min-w-0 overflow-x-hidden bg-transparent text-zinc-100`}
     >
       <section className="relative isolate min-h-screen overflow-hidden bg-transparent">
         {/* Подложка под blend: лёгкий cyan / violet */}
@@ -89,64 +89,98 @@ export default function Home() {
         <div className="hero-readability-mask absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.05),rgba(255,255,255,0)_14%)]" />
 
         <div className="relative z-10 flex min-h-dvh w-full flex-col">
-          <div className="mx-auto w-full max-w-[1580px] shrink-0 px-4 pb-2 pt-4 sm:px-8 sm:pb-3">
-          <header className="card-glow-hover flex flex-wrap items-center justify-between gap-2 border border-white/15 bg-black/40 px-3 py-3 backdrop-blur-sm sm:gap-3 sm:px-4">
-            <div className="text-sm font-semibold uppercase tracking-[0.14em]">Pavel Dranchuk</div>
-            <nav className="hidden items-center gap-3 lg:flex">
+          <div className="mx-auto w-full min-w-0 max-w-[1580px] shrink-0 px-3 pb-2 pt-3 sm:px-8 sm:pb-3 sm:pt-4">
+          <header className="card-glow-hover flex min-w-0 flex-col gap-3 border border-white/15 bg-black/40 px-3 py-3 backdrop-blur-sm sm:gap-3 sm:px-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-between lg:gap-x-3 lg:gap-y-2">
+            <div className="flex min-w-0 w-full items-center justify-between gap-2 lg:w-auto lg:max-w-[min(100%,220px)] xl:max-w-none">
+              <div className="min-w-0 truncate text-sm font-semibold tracking-[0.06em] text-zinc-100 sm:tracking-[0.1em]">
+                {SITE_BRAND_NAME}
+              </div>
+              <nav className="hidden items-center gap-2 xl:gap-3 lg:flex">
+                <a
+                  href="tel:+48571502355"
+                  className="shrink-0 rounded border border-white/25 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-200 transition hover:bg-white/10 xl:px-4 xl:tracking-[0.14em]"
+                >
+                  +48 571 502 355
+                </a>
+                <a
+                  href="#about"
+                  className="hover-bounce inline-flex shrink-0 items-center justify-center rounded border border-white/25 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-200 transition hover:bg-white/10 xl:px-4 xl:tracking-[0.14em]"
+                >
+                  About
+                </a>
+                <a
+                  href="#projects"
+                  className="hover-bounce inline-flex shrink-0 items-center justify-center rounded border border-white/25 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-200 transition hover:bg-white/10 xl:px-4 xl:tracking-[0.14em]"
+                >
+                  Projects
+                </a>
+              </nav>
+            </div>
+
+            <nav
+              aria-label="Primary"
+              className="flex w-full min-w-0 flex-wrap items-center gap-2 lg:hidden"
+            >
               <a
                 href="tel:+48571502355"
-                className="rounded border border-white/25 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-200 transition hover:bg-white/10"
+                className="min-w-0 flex-1 basis-[calc(50%-0.25rem)] rounded border border-white/25 px-2 py-2 text-center text-[9px] font-semibold uppercase leading-tight tracking-[0.08em] text-zinc-200 transition hover:bg-white/10 sm:text-[10px] sm:tracking-[0.1em]"
               >
                 +48 571 502 355
               </a>
               <a
                 href="#about"
-                className="hover-bounce inline-flex items-center justify-center rounded border border-white/25 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-200 transition hover:bg-white/10"
+                className="hover-bounce inline-flex min-h-[2.5rem] min-w-0 flex-1 basis-[calc(50%-0.25rem)] items-center justify-center rounded border border-white/25 px-2 py-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-zinc-200 transition hover:bg-white/10"
               >
                 About
               </a>
               <a
                 href="#projects"
-                className="hover-bounce inline-flex items-center justify-center rounded border border-white/25 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-200 transition hover:bg-white/10"
+                className="hover-bounce inline-flex min-h-[2.5rem] min-w-0 flex-1 basis-[calc(50%-0.25rem)] items-center justify-center rounded border border-white/25 px-2 py-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-zinc-200 transition hover:bg-white/10"
               >
                 Projects
               </a>
             </nav>
 
-            <div className="flex flex-wrap items-center justify-end gap-2">
-              <GuideTelegramCta href={guideBotUrl} variant="header" />
-              <a
-                href="https://t.me/pav_sep"
-                target="_blank"
-                rel="noreferrer"
-                title="Telegram: @pav_sep"
-                className="hover-bounce inline-flex items-center justify-center rounded border border-red-400/80 bg-red-500 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-white transition hover:bg-red-400"
-              >
-                @pav_sep
-              </a>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="hover-bounce inline-flex items-center justify-center rounded border border-white/35 bg-white/90 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-black transition hover:bg-white"
-              >
-                LinkedIn
-              </a>
+            <div className="flex w-full min-w-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-stretch lg:w-auto lg:max-w-none lg:flex-row lg:flex-wrap lg:items-center lg:justify-end">
+              <GuideTelegramCta
+                href={guideBotUrl}
+                variant="header"
+                className="w-full justify-center sm:flex-1 sm:justify-center lg:w-auto lg:flex-initial lg:justify-center"
+              />
+              <div className="grid min-w-0 grid-cols-2 gap-2 sm:flex sm:flex-1 sm:flex-wrap sm:justify-end lg:contents">
+                <a
+                  href="https://t.me/pav_sep"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Telegram: @pav_sep"
+                  className="hover-bounce inline-flex min-h-[2.5rem] min-w-0 items-center justify-center rounded border border-red-400/80 bg-red-500 px-2 py-2 text-[10px] font-bold uppercase tracking-[0.1em] text-white transition hover:bg-red-400 sm:flex-1 lg:flex-initial lg:px-4 lg:tracking-[0.14em]"
+                >
+                  @pav_sep
+                </a>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover-bounce inline-flex min-h-[2.5rem] min-w-0 items-center justify-center rounded border border-white/35 bg-white/90 px-2 py-2 text-[10px] font-bold uppercase tracking-[0.1em] text-black transition hover:bg-white sm:flex-1 lg:flex-initial lg:px-4 lg:tracking-[0.14em]"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </header>
           </div>
 
           <div
             id="about"
-            className="mx-auto flex min-h-0 w-full max-w-[1580px] flex-1 flex-col gap-8 px-4 pb-8 pt-2 sm:px-8 lg:min-h-[calc(100dvh-7rem)] lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:grid-rows-[auto] lg:items-stretch lg:gap-x-16 lg:gap-y-0 lg:px-[max(1.25rem,calc((100vw-1580px)/2+1.25rem))] lg:py-10 lg:pb-12"
+            className="mx-auto flex min-h-0 w-full min-w-0 max-w-[1580px] flex-1 flex-col gap-6 px-3 pb-6 pt-2 sm:gap-8 sm:px-8 sm:pb-8 lg:min-h-[calc(100dvh-7rem)] lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:grid-rows-[auto] lg:items-stretch lg:gap-x-16 lg:gap-y-0 lg:px-[max(1.25rem,calc((100vw-1580px)/2+1.25rem))] lg:py-10 lg:pb-12"
           >
             <HeroPortraitHeightSync />
             {/* lg:contents — на десктопе дети попадают в сетку; на мобилке одна карточка */}
-            <div className="flex max-w-[640px] flex-col gap-6 max-lg:mx-auto max-lg:w-full max-lg:max-w-[min(600px,94vw)] max-lg:rounded-2xl max-lg:border max-lg:border-white/10 max-lg:bg-black/65 max-lg:p-5 max-lg:shadow-[0_20px_50px_rgba(0,0,0,0.55)] max-lg:backdrop-blur-md lg:contents">
+            <div className="flex min-w-0 max-w-[640px] flex-col gap-5 max-lg:mx-auto max-lg:w-full max-lg:max-w-full max-lg:rounded-2xl max-lg:border max-lg:border-white/10 max-lg:bg-black/65 max-lg:p-4 max-lg:shadow-[0_20px_50px_rgba(0,0,0,0.55)] max-lg:backdrop-blur-md sm:max-lg:gap-6 sm:max-lg:p-5 lg:contents">
               {/* Одна строка сетки с фото: верх = Featured, низ кнопок = низ фото */}
               <div
                 id="hero-about-left"
-                className="flex w-full max-w-[640px] flex-col gap-6 sm:gap-6 lg:col-start-1 lg:row-start-1 lg:min-h-0 lg:h-full lg:w-full lg:self-stretch lg:gap-7"
+                className="flex w-full min-w-0 max-w-[640px] flex-col gap-5 sm:gap-6 lg:col-start-1 lg:row-start-1 lg:min-h-0 lg:h-full lg:w-full lg:self-stretch lg:gap-7"
               >
                 <div id="hero-featured-block" className="w-full shrink-0">
                   <span className="inline-flex rounded bg-white/95 px-3 py-1 text-[11px] font-medium text-black sm:text-xs">
@@ -159,13 +193,13 @@ export default function Home() {
                 </div>
 
                 <div id="hero-about-copy" className="w-full shrink-0 lg:min-h-0">
-                  <h1 className="mt-2 text-5xl font-semibold uppercase leading-[0.96] tracking-[0.04em] text-white sm:mt-3 sm:text-7xl lg:mt-0 lg:text-[clamp(3rem,3.4vw+1.5rem,4.75rem)] lg:leading-[0.97] xl:text-[clamp(3.35rem,3.6vw+1.4rem,5.25rem)]">
+                  <h1 className="mt-2 break-words text-[clamp(2.25rem,11vw,3.5rem)] font-semibold uppercase leading-[0.96] tracking-[0.04em] text-white sm:mt-3 sm:text-7xl lg:mt-0 lg:text-[clamp(3rem,3.4vw+1.5rem,4.75rem)] lg:leading-[0.97] xl:text-[clamp(3.35rem,3.6vw+1.4rem,5.25rem)]">
                     PAVEL
                     <br />
                     DRANCHUK
                   </h1>
 
-                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-200/95 sm:mt-6 sm:text-[1.05rem] lg:mt-6 lg:max-w-[52ch] lg:text-[1.0625rem] lg:leading-[1.7] xl:text-[1.125rem]">
+                  <p className="mt-5 max-w-2xl break-words text-base leading-relaxed text-zinc-200/95 sm:mt-6 sm:text-[1.05rem] lg:mt-6 lg:max-w-[52ch] lg:text-[1.0625rem] lg:leading-[1.7] xl:text-[1.125rem]">
                     I&apos;m an{" "}
                     <span className="text-zinc-100">AI enthusiast</span> and a{" "}
                     <span className="text-zinc-100">General Manager</span> with 15+ years connecting
@@ -216,11 +250,11 @@ export default function Home() {
             {/* Половина ширины hero: та же высота строки, что h1…метрики — один «массив» слева/справа */}
             <div
               id="hero-portrait-cell"
-              className="relative z-[1] mt-2 w-full max-lg:flex max-lg:justify-center max-lg:pb-2 lg:col-start-2 lg:row-start-1 lg:mt-0 lg:flex lg:min-h-0 lg:w-full lg:flex-col lg:self-stretch lg:overflow-hidden"
+              className="relative z-[1] mt-3 w-full min-w-0 max-lg:flex max-lg:justify-center max-lg:pb-2 lg:col-start-2 lg:row-start-1 lg:mt-0 lg:flex lg:min-h-0 lg:w-full lg:flex-col lg:self-stretch lg:overflow-hidden"
             >
-              <div className="hero-portrait-immersive relative flex h-full min-h-[280px] w-full max-w-[min(100%,360px)] flex-col sm:max-w-[400px] lg:mx-0 lg:h-full lg:min-h-0 lg:w-full lg:max-w-full lg:flex-1 lg:flex-col">
+              <div className="hero-portrait-immersive relative flex h-full min-h-[240px] w-full max-w-full flex-col sm:max-w-[400px] lg:mx-0 lg:h-full lg:min-h-0 lg:w-full lg:max-w-full lg:flex-1 lg:flex-col">
                 <div className="hero-portrait-glow" aria-hidden />
-                <div className="hero-portrait-image-wrap aspect-[3/4] h-[min(52vh,440px)] w-full max-lg:mx-auto lg:aspect-auto lg:min-h-0 lg:h-full lg:w-full lg:max-w-full lg:flex-1">
+                <div className="hero-portrait-image-wrap aspect-[3/4] h-[min(48vh,400px)] w-full max-w-full max-lg:mx-auto sm:h-[min(52vh,440px)] lg:aspect-auto lg:min-h-0 lg:h-full lg:w-full lg:max-w-full lg:flex-1">
                   <Image
                     src="/pavel.png"
                     alt="Pavel Dranchuk portrait"

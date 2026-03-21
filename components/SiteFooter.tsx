@@ -26,7 +26,7 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-zinc-800 bg-[#070708]/92">
-      <div className="mx-auto flex max-w-[1500px] flex-col items-center gap-10 px-4 py-14 sm:px-8">
+      <div className="mx-auto flex min-w-0 max-w-[1500px] flex-col items-center gap-8 px-3 py-12 sm:gap-10 sm:px-8 sm:py-14">
         <GuideTelegramBlock botUrl={guideBotUrl} />
 
         <div className="flex flex-wrap items-center justify-center gap-3">

@@ -125,8 +125,8 @@ export function AnimatedMetrics({ variant = "section", className }: AnimatedMetr
 
   const gridClass =
     variant === "hero"
-      ? "mt-3 grid gap-2 sm:grid-cols-3 sm:gap-2.5 lg:gap-2.5"
-      : "mt-4 grid gap-3 sm:grid-cols-3 sm:gap-4";
+      ? "mt-3 grid grid-cols-1 gap-2 min-[420px]:grid-cols-3 min-[420px]:gap-2.5 lg:gap-2.5"
+      : "mt-4 grid grid-cols-1 gap-3 min-[420px]:grid-cols-3 min-[420px]:gap-4";
 
   return (
     <div ref={ref} className={`${gridClass}${className ? ` ${className}` : ""}`}>
