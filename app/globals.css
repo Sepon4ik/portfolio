@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-[#0a0a0a] text-zinc-100 antialiased;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.animate-drift {
+  animation: drift 8s infinite alternate ease-in-out;
+}
+
+@keyframes sweep {
+  0% { transform: translateX(-12%) translateY(0); opacity: 0.08; }
+  50% { transform: translateX(8%) translateY(-2%); opacity: 0.16; }
+  100% { transform: translateX(-12%) translateY(0); opacity: 0.08; }
+}
+
+.animate-sweep {
+  animation: sweep 10s infinite ease-in-out;
+}
+
+@keyframes gridShift {
+  0% { background-position: 0 0, 0 0; }
+  50% { background-position: 40px -30px, -30px 40px; }
+  100% { background-position: 80px -60px, -60px 80px; }
+}
+
+.animate-grid-shift {
+  animation: gridShift 28s linear infinite;
+}
+
+/* Pipeline backdrop (hero): dashed flow + lane shimmer */
+@keyframes pipeline-dash-move {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+.pipeline-stroke {
+  stroke-dasharray: 8 12;
+  stroke-linecap: round;
+  animation: pipeline-dash-move 2.4s linear infinite;
+}
+
+.pipeline-stroke-slow {
+  animation-duration: 3.6s;
+}
+
+.pipeline-stroke-fast {
+  animation-duration: 1.8s;
+}
+
+.pipeline-stroke-v {
+  stroke-dasharray: 4 10;
+  animation-duration: 3s;
+}
+
+@keyframes pipeline-node-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    stroke-opacity: 0.35;
+  }
+  50% {
+    opacity: 0.85;
+    stroke-opacity: 0.75;
+  }
+}
+
+.pipeline-node {
+  animation: pipeline-node-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes pipeline-dot-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.pipeline-dot {
+  animation: pipeline-dot-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pipeline-lane-shift {
+  0% {
+    transform: scaleX(0.35);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.45;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 0.22;
+  }
+  100% {
+    transform: scaleX(0.4);
+    opacity: 0;
+  }
+}
+
+.pipeline-lane {
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 189, 248, 0.35) 40%,
+    rgba(99, 102, 241, 0.3) 60%,
+    transparent
+  );
+  animation: pipeline-lane-shift 7s ease-in-out infinite;
+}
+
+.pipeline-lane-delay {
+  transform-origin: right center;
+  animation-delay: -3.5s;
+}
+
+/* Pipeline only on the left; fade before portrait zone (tighter on mobile) */
+.pipeline-mask {
+  mask-image: linear-gradient(to right, black 0%, black 56%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 56%, transparent 100%);
+}
+
+@media (min-width: 640px) {
+  .pipeline-mask {
+    mask-image: linear-gradient(to right, black 0%, black 66%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 0%, black 66%, transparent 100%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pipeline-mask {
+    mask-image: linear-gradient(to right, black 0%, black 72%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 0%, black 72%, transparent 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pipeline-stroke,
+  .pipeline-node,
+  .pipeline-lane,
+  .pipeline-dot {
+    animation: none !important;
+  }
+
+  .pipeline-stroke {
+    stroke-dashoffset: 0;
+  }
+
+  .pipeline-node {
+    opacity: 0.5;
+  }
+
+  .pipeline-dot {
+    opacity: 0.55;
+  }
+}
