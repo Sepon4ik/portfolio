@@ -9,10 +9,17 @@ type Metric =
 const metrics: Metric[] = [
   { kind: "count", end: 15, suffix: "+", label: "Years Leadership" },
   { kind: "count", end: 90, suffix: "%+", label: "Team Retention" },
-  { kind: "range", text: "50–200+", label: "Management Scale" },
+  { kind: "range", text: "50–200+", label: "Managing teams from 50 to 200 people" },
 ];
 
-function useCountUp(target: number, durationMs: number, startWhen: boolean, decimals = 0) {
+function useCountUp(
+  target: number,
+  durationMs: number,
+  startWhen: boolean,
+  decimals = 0,
+  /** Меняется при каждом новом «входе» во viewport — гарантирует перезапуск анимации */
+  runId = 0,
+) {
   const [v, setV] = useState(0);
 
   useEffect(() => {
@@ -34,7 +41,7 @@ function useCountUp(target: number, durationMs: number, startWhen: boolean, deci
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [target, durationMs, startWhen, decimals]);
+  }, [target, durationMs, startWhen, decimals, runId]);
 
   return v;
 }
@@ -51,6 +58,7 @@ function MetricCountCard({
   decimals,
   active,
   tone,
+  runId,
 }: {
   end: number;
   suffix: string;
@@ -58,8 +66,9 @@ function MetricCountCard({
   decimals?: number;
   active: boolean;
   tone: "section" | "hero";
+  runId: number;
 }) {
-  const n = useCountUp(end, 1600, active, decimals);
+  const n = useCountUp(end, 1600, active, decimals, runId);
   const valueClass =
     tone === "hero"
       ? "text-xl font-semibold tabular-nums tracking-tight text-white sm:text-2xl lg:text-[clamp(1.25rem,1.65vw+0.7rem,2rem)] xl:text-[clamp(1.75rem,1.5vw+1rem,2.25rem)]"
@@ -91,7 +100,9 @@ function MetricRangeCard({
   return (
     <div className={cardShell(tone)}>
       <p className={valueClass}>{text}</p>
-      <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-zinc-500 sm:text-[11px]">{label}</p>
+      <p className="mt-1.5 text-[9px] font-medium leading-snug tracking-wide text-zinc-500 sm:text-[10px]">
+        {label}
+      </p>
     </div>
   );
 }
@@ -106,22 +117,28 @@ export function AnimatedMetrics({ variant = "section", className }: AnimatedMetr
   const ref = useRef<HTMLDivElement>(null);
   const isHero = variant === "hero";
   const [active, setActive] = useState(isHero);
+  const [runId, setRunId] = useState(0);
+  /** Hero при первой отрисовке считаем «уже в кадре» — не дублируем первый прогон runId */
+  const wasOutRef = useRef(!isHero);
 
   useEffect(() => {
-    if (isHero) return;
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => {
         if (!e) return;
-        // Каждый вход в viewport (сверху или снизу) → true; уход → сброс и новый прогон при следующем входе
-        setActive(e.isIntersecting);
+        const inView = e.isIntersecting;
+        if (inView && wasOutRef.current) {
+          setRunId((k) => k + 1);
+        }
+        wasOutRef.current = !inView;
+        setActive(inView);
       },
-      { threshold: 0.2 },
+      { threshold: [0, 0.12, 0.2], rootMargin: "0px 0px -5% 0px" },
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [isHero]);
+  }, []);
 
   const gridClass =
     variant === "hero"
@@ -142,6 +159,7 @@ export function AnimatedMetrics({ variant = "section", className }: AnimatedMetr
             decimals={m.decimals}
             active={active}
             tone={variant}
+            runId={runId}
           />
         ),
       )}

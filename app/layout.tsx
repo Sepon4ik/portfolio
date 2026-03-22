@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { BackgroundAmbience } from "@/components/BackgroundAmbience";
 import { ConstellationParticles } from "@/components/ConstellationParticles";
 import { SiteJsonLd } from "@/components/SiteJsonLd";
 import { SmoothScroll } from "@/components/SmoothScroll";
@@ -78,6 +79,7 @@ export default function RootLayout({
           <div className="relative z-10">
             <ToastHost>
               {children}
+              <BackgroundAmbience />
               <TelegramChannelFab />
             </ToastHost>
           </div>

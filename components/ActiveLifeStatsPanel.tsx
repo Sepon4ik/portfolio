@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
+import { ExperienceLogoFrame } from "@/components/ExperienceLogoFrame";
+
 function useCountUp(target: number, durationMs: number, active: boolean) {
   const [v, setV] = useState(0);
 
@@ -53,15 +55,17 @@ export function ActiveLifeStatsPanel() {
       ref={rootRef}
       className="rounded-[12px] border border-white/10 bg-black/35 p-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] backdrop-blur-md"
     >
-      <div className="flex items-center gap-4">
-        <Image
-          src="/active-life.png"
-          alt="Active Life Technologies logo"
-          width={56}
-          height={56}
-          className="h-14 w-14 shrink-0 rounded-full object-contain"
-        />
-        <div>
+      <div className="flex items-center gap-3 sm:gap-4">
+        <ExperienceLogoFrame variant="light">
+          <Image
+            src="/active-life.png"
+            alt="Active Life Technologies logo"
+            width={200}
+            height={200}
+            className="max-h-full max-w-full object-contain object-center"
+          />
+        </ExperienceLogoFrame>
+        <div className="min-w-0">
           <p className="text-sm font-bold text-white">Active Life Technologies</p>
           <p className="text-xs text-zinc-500">MedTech · commercial operations</p>
         </div>

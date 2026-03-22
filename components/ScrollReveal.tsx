@@ -10,9 +10,8 @@ type Props = {
 };
 
 /**
- * Появление при скролле: после первого попадания в зону видимости остаётся «раскрытым»
- * навсегда (не откатывается при уходе блока вверх/вниз). Дополнительно ловим быстрый скролл
- * и блоки уже в viewport при загрузке.
+ * Появление при скролле: при каждом входе в зону видимости — анимация «въезда»,
+ * при уходе — сброс (скрытое состояние), чтобы при возврате к блоку эффект снова отыгрывался.
  */
 export function ScrollReveal({ children, className = "", delay = 0 }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -30,25 +29,22 @@ export function ScrollReveal({ children, className = "", delay = 0 }: Props) {
       return;
     }
 
-    const reveal = () => setVisible(true);
-
-    /** Уже в окне (например, после якоря или низкой высоты экрана) */
+    /** Синхронно с тем же «окном», что и раньше (якорь, низкий экран, быстрый скролл) */
     const checkInView = () => {
       const r = el.getBoundingClientRect();
       const vh = window.innerHeight;
       const margin = vh * 0.12;
       const inView = r.top < vh - margin && r.bottom > margin;
-      if (inView) reveal();
+      setVisible(inView);
     };
 
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
-          if (e.isIntersecting) reveal();
+          setVisible(e.isIntersecting);
         }
       },
       {
-        /* Несколько порогов + «запас» по краям — не пропускаем один быстрый скролл */
         threshold: [0, 0.04, 0.12, 0.25],
         rootMargin: "12% 0px 18% 0px",
       },

@@ -4,6 +4,7 @@ import { Send } from "lucide-react";
 import { ActiveLifeStatsPanel } from "@/components/ActiveLifeStatsPanel";
 import { AnimatedMetrics } from "@/components/AnimatedMetrics";
 import { CopyEmailButton } from "@/components/CopyEmailButton";
+import { ExperienceLogoFrame } from "@/components/ExperienceLogoFrame";
 import { GuideTelegramCta } from "@/components/GuideTelegramCta";
 import { HeroPortraitHeightSync } from "@/components/HeroPortraitHeightSync";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -188,16 +189,31 @@ export default function Home() {
                   </span>
 
                   <p className="mt-5 text-[11px] uppercase tracking-[0.2em] text-zinc-300 sm:mt-6 sm:text-xs lg:mt-4 lg:text-sm">
-                    Architecting the Magic of Game Dev
+                    Architecting the Magic of Management
                   </p>
                 </div>
 
                 <div id="hero-about-copy" className="w-full shrink-0 lg:min-h-0">
-                  <h1 className="mt-2 break-words text-[clamp(2.25rem,11vw,3.5rem)] font-semibold uppercase leading-[0.96] tracking-[0.04em] text-white sm:mt-3 sm:text-7xl lg:mt-0 lg:text-[clamp(3rem,3.4vw+1.5rem,4.75rem)] lg:leading-[0.97] xl:text-[clamp(3.35rem,3.6vw+1.4rem,5.25rem)]">
-                    PAVEL
-                    <br />
-                    DRANCHUK
-                  </h1>
+                  {/* Мобилка: фото компактно справа от имени; lg: только текст, большое фото в колонке справа */}
+                  <div className="mt-2 flex flex-row items-start gap-3 sm:mt-3 sm:gap-4 lg:mt-0 lg:block">
+                    <h1 className="min-w-0 flex-1 break-words text-[clamp(1.65rem,7.5vw,2.35rem)] font-semibold uppercase leading-[0.98] tracking-[0.04em] text-white sm:text-[clamp(1.85rem,8vw,2.75rem)] lg:text-[clamp(3rem,3.4vw+1.5rem,4.75rem)] lg:leading-[0.97] xl:text-[clamp(3.35rem,3.6vw+1.4rem,5.25rem)]">
+                      PAVEL
+                      <br />
+                      DRANCHUK
+                    </h1>
+                    <div className="relative mt-0.5 hidden shrink-0 overflow-hidden rounded-xl border border-white/18 bg-zinc-900/40 shadow-[0_8px_28px_-10px_rgba(0,0,0,0.7)] max-lg:block sm:rounded-2xl">
+                      <div className="relative aspect-[3/4] w-[4.5rem] sm:w-[5.25rem]">
+                        <Image
+                          src="/pavel.png"
+                          alt="Pavel Dranchuk portrait"
+                          fill
+                          sizes="(max-width:640px) 72px, 84px"
+                          quality={75}
+                          className="object-cover object-[center_12%]"
+                        />
+                      </div>
+                    </div>
+                  </div>
 
                   <p className="mt-5 max-w-2xl break-words text-base leading-relaxed text-zinc-200/95 sm:mt-6 sm:text-[1.05rem] lg:mt-6 lg:max-w-[52ch] lg:text-[1.0625rem] lg:leading-[1.7] xl:text-[1.125rem]">
                     I&apos;m an{" "}
@@ -250,11 +266,11 @@ export default function Home() {
             {/* Половина ширины hero: та же высота строки, что h1…метрики — один «массив» слева/справа */}
             <div
               id="hero-portrait-cell"
-              className="relative z-[1] mt-3 w-full min-w-0 max-lg:flex max-lg:justify-center max-lg:pb-2 lg:col-start-2 lg:row-start-1 lg:mt-0 lg:flex lg:min-h-0 lg:w-full lg:flex-col lg:self-stretch lg:overflow-hidden"
+              className="relative z-[1] hidden min-w-0 w-full lg:col-start-2 lg:row-start-1 lg:mt-0 lg:flex lg:min-h-0 lg:w-full lg:flex-col lg:self-stretch lg:overflow-hidden"
             >
-              <div className="hero-portrait-immersive relative flex h-full min-h-[240px] w-full max-w-full flex-col sm:max-w-[400px] lg:mx-0 lg:h-full lg:min-h-0 lg:w-full lg:max-w-full lg:flex-1 lg:flex-col">
+              <div className="hero-portrait-immersive relative flex h-full min-h-0 w-full max-w-full flex-col lg:mx-0 lg:h-full lg:min-h-0 lg:w-full lg:max-w-full lg:flex-1 lg:flex-col">
                 <div className="hero-portrait-glow" aria-hidden />
-                <div className="hero-portrait-image-wrap aspect-[3/4] h-[min(48vh,400px)] w-full max-w-full max-lg:mx-auto sm:h-[min(52vh,440px)] lg:aspect-auto lg:min-h-0 lg:h-full lg:w-full lg:max-w-full lg:flex-1">
+                <div className="hero-portrait-image-wrap aspect-[3/4] h-[min(52vh,440px)] w-full max-w-full lg:aspect-auto lg:min-h-0 lg:h-full lg:w-full lg:max-w-full lg:flex-1">
                   <Image
                     src="/pavel.png"
                     alt="Pavel Dranchuk portrait"
@@ -451,37 +467,37 @@ export default function Home() {
 
                 <div className="flex flex-col gap-5">
                   <div className="rounded-[12px] border border-white/10 bg-black/35 p-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] backdrop-blur-md">
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-[88px] w-[100px] shrink-0 items-center justify-center overflow-hidden rounded-[12px] bg-[#2a1848] ring-1 ring-violet-400/20">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <ExperienceLogoFrame variant="redbark">
                         <Image
                           src="/redbark-logo.png"
                           alt="Red Bark Game Studio logo"
-                          width={92}
-                          height={92}
-                          className="object-contain object-center"
+                          width={400}
+                          height={400}
+                          className="max-h-full max-w-full object-contain object-center"
                         />
-                      </div>
+                      </ExperienceLogoFrame>
                       <div className="min-w-0">
-                        <p className="text-sm font-semibold text-white">Red Bark</p>
-                        <p className="text-xs text-zinc-400">Game studio · match-3 &amp; mobile</p>
+                        <p className="text-sm font-bold text-white">Red Bark</p>
+                        <p className="text-xs text-zinc-500">Game studio · match-3 &amp; mobile</p>
                       </div>
                     </div>
                     <div className="mt-5 grid grid-cols-3 gap-2">
                       <div className="rounded-[12px] border border-white/10 bg-white/[0.04] px-2 py-3 text-center backdrop-blur-sm">
-                        <p className="text-sm font-bold text-white">15+</p>
-                        <p className="mt-1 text-[10px] uppercase tracking-[0.1em] text-zinc-500">
+                        <p className="text-lg font-bold tabular-nums text-white sm:text-xl">15+</p>
+                        <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-zinc-500">
                           Years
                         </p>
                       </div>
                       <div className="rounded-[12px] border border-white/10 bg-white/[0.04] px-2 py-3 text-center backdrop-blur-sm">
-                        <p className="text-sm font-bold text-white">90%+</p>
-                        <p className="mt-1 text-[10px] uppercase tracking-[0.1em] text-zinc-500">
+                        <p className="text-lg font-bold tabular-nums text-white sm:text-xl">90%+</p>
+                        <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-zinc-500">
                           Retention
                         </p>
                       </div>
                       <div className="rounded-[12px] border border-white/10 bg-white/[0.04] px-2 py-3 text-center backdrop-blur-sm">
-                        <p className="text-sm font-bold text-white">M3</p>
-                        <p className="mt-1 text-[10px] uppercase tracking-[0.1em] text-zinc-500">
+                        <p className="text-lg font-bold tabular-nums text-white sm:text-xl">M3</p>
+                        <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-zinc-500">
                           Focus
                         </p>
                       </div>

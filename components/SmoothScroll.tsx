@@ -13,12 +13,13 @@ export function SmoothScroll() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({
-      // Меньше lerp → дольше «тормозной путь», мягче догон цели
-      lerp: 0.062,
+      // Чуть выше lerp — меньше кадров «догонки» цели, легче для CPU при колёсике
+      lerp: 0.092,
       smoothWheel: true,
       wheelMultiplier: 0.88,
-      syncTouch: true,
-      syncTouchLerp: 0.075,
+      // Важно: syncTouch:true перехватывает тач и часто даёт джиттер на iOS/Android.
+      // Нативный скролл пальцем + плавное колёсико на десктопе.
+      syncTouch: false,
       touchMultiplier: 1,
       autoRaf: true,
       anchors: true,

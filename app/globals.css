@@ -315,6 +315,71 @@ body {
   }
 }
 
+/* Фоновая музыка: мини-«волны» / эквалайзер */
+@keyframes ambience-waves-pulse {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.ambience-waves {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  height: 22px;
+  min-width: 34px;
+  padding: 0 4px;
+}
+
+.ambience-waves__bar {
+  width: 3px;
+  height: 15px;
+  border-radius: 9999px;
+  background: linear-gradient(to top, rgb(8 145 178 / 0.4), rgb(34 211 238 / 0.95));
+  transform-origin: bottom center;
+  flex-shrink: 0;
+}
+
+.ambience-waves--idle .ambience-waves__bar:nth-child(1) {
+  transform: scaleY(0.38);
+}
+.ambience-waves--idle .ambience-waves__bar:nth-child(2) {
+  transform: scaleY(0.68);
+}
+.ambience-waves--idle .ambience-waves__bar:nth-child(3) {
+  transform: scaleY(0.52);
+}
+.ambience-waves--idle .ambience-waves__bar:nth-child(4) {
+  transform: scaleY(0.85);
+}
+.ambience-waves--idle .ambience-waves__bar:nth-child(5) {
+  transform: scaleY(0.42);
+}
+
+.ambience-waves--playing .ambience-waves__bar {
+  animation: ambience-waves-pulse 0.82s ease-in-out infinite;
+}
+.ambience-waves--playing .ambience-waves__bar:nth-child(1) {
+  animation-delay: 0ms;
+}
+.ambience-waves--playing .ambience-waves__bar:nth-child(2) {
+  animation-delay: 100ms;
+}
+.ambience-waves--playing .ambience-waves__bar:nth-child(3) {
+  animation-delay: 200ms;
+}
+.ambience-waves--playing .ambience-waves__bar:nth-child(4) {
+  animation-delay: 150ms;
+}
+.ambience-waves--playing .ambience-waves__bar:nth-child(5) {
+  animation-delay: 50ms;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hover-bounce:hover {
     animation: none;
@@ -336,6 +401,11 @@ body {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
+  }
+
+  .ambience-waves--playing .ambience-waves__bar {
+    animation: none;
+    transform: scaleY(0.62);
   }
 }
 
@@ -367,21 +437,18 @@ body {
   animation: hero-grid-drift 44s linear infinite;
 }
 
-/* Плавное появление при скролле */
+/* Плавное появление при скролле — без filter: blur (очень тяжело при скролле/композитинге) */
 .scroll-reveal {
   opacity: 0;
-  transform: translate3d(0, 28px, 0);
-  filter: blur(2px);
+  transform: translate3d(0, 20px, 0);
   transition:
-    opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
-    filter 0.6s ease;
+    opacity 0.65s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .scroll-reveal-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  filter: blur(0);
 }
 
 /* Glass card spec: 12px, 1px border ~10% white */

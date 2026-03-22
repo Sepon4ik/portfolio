@@ -10,3 +10,4 @@ node_modules
 # Локальные артефакты / дубликаты проекта
 temp_folder
 .node
+node_modules
