@@ -1,4 +1,4 @@
-import { FileDown, Linkedin, Megaphone, Send } from "lucide-react";
+import { Linkedin, Megaphone, Send } from "lucide-react";
 import { GuideTelegramBlock } from "@/components/GuideTelegramCta";
 import { getTelegramGuideBotUrl, LINKEDIN_URL, SITE_BRAND_NAME, TELEGRAM_DM_URL } from "@/lib/site-config";
 
@@ -43,22 +43,6 @@ export function SiteFooter() {
             </a>
           ))}
         </div>
-
-        <a
-          href="/Pavel-Dranchuk-CV.pdf"
-          download
-          className="hover-bounce inline-flex items-center gap-2 rounded-full border border-white/20 bg-zinc-900/60 px-6 py-3 text-sm font-medium text-zinc-100 transition hover:border-white/40 hover:bg-zinc-800"
-        >
-          <FileDown className="h-4 w-4" />
-          Download Pavel&apos;s PDF CV
-        </a>
-        <p className="max-w-md text-center text-[11px] leading-relaxed text-zinc-600">
-          Add your file as{" "}
-          <code className="rounded bg-zinc-900 px-1.5 py-0.5 text-zinc-500">
-            public/Pavel-Dranchuk-CV.pdf
-          </code>{" "}
-          for the download to work on production.
-        </p>
 
         <p className="text-xs text-zinc-600">
           © {year} {SITE_BRAND_NAME} · Warszawa

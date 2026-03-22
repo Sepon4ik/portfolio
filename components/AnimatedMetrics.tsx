@@ -8,7 +8,7 @@ type Metric =
 
 const metrics: Metric[] = [
   { kind: "count", end: 15, suffix: "+", label: "Years Leadership" },
-  { kind: "count", end: 90, suffix: "%+", label: "Team Retention" },
+  { kind: "range", text: "GameDev", label: "Marketing" },
   { kind: "range", text: "50–200+", label: "Managing teams from 50 to 200 people" },
 ];
 

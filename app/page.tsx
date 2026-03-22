@@ -483,23 +483,17 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="mt-5 grid grid-cols-3 gap-2">
-                      <div className="rounded-[12px] border border-white/10 bg-white/[0.04] px-2 py-3 text-center backdrop-blur-sm">
-                        <p className="text-lg font-bold tabular-nums text-white sm:text-xl">15+</p>
+                      <div className="flex min-h-[4.25rem] flex-col items-center justify-center rounded-[12px] border border-white/10 bg-white/[0.04] px-2 py-3 text-center backdrop-blur-sm">
+                        <p className="text-lg font-bold tabular-nums text-white sm:text-xl">5+</p>
                         <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-zinc-500">
                           Years
                         </p>
                       </div>
-                      <div className="rounded-[12px] border border-white/10 bg-white/[0.04] px-2 py-3 text-center backdrop-blur-sm">
-                        <p className="text-lg font-bold tabular-nums text-white sm:text-xl">90%+</p>
-                        <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-zinc-500">
-                          Retention
-                        </p>
+                      <div className="flex min-h-[4.25rem] flex-col items-center justify-center rounded-[12px] border border-white/10 bg-white/[0.04] px-1 py-3 text-center backdrop-blur-sm">
+                        <p className="text-sm font-bold leading-tight text-white sm:text-base">GameDev</p>
                       </div>
-                      <div className="rounded-[12px] border border-white/10 bg-white/[0.04] px-2 py-3 text-center backdrop-blur-sm">
-                        <p className="text-lg font-bold tabular-nums text-white sm:text-xl">M3</p>
-                        <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-zinc-500">
-                          Focus
-                        </p>
+                      <div className="flex min-h-[4.25rem] flex-col items-center justify-center rounded-[12px] border border-white/10 bg-white/[0.04] px-1 py-3 text-center backdrop-blur-sm">
+                        <p className="text-sm font-bold leading-tight text-white sm:text-base">Marketing</p>
                       </div>
                     </div>
                   </div>
