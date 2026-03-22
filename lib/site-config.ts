@@ -1,7 +1,7 @@
 /** Публичные константы для ссылок (без секретов) */
 export const TELEGRAM_CHANNEL_URL = "https://t.me/homo_management";
 
-/** Бренд и превью ссылок (Telegram, WhatsApp, LinkedIn, Slack, iMessage…) */
+/** Бренд: вкладка браузера, Open Graph / Twitter, шапка, футер, manifest */
 export const SITE_BRAND_NAME = "Pavel.Dranchuk";
 
 export const SITE_TAGLINE =

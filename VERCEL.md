@@ -58,10 +58,17 @@ vercel --prod
 
 ---
 
-## Свой домен
+## Свой домен (убрать `*.vercel.app` из адресной строки)
 
-1. Vercel → Project → **Settings → Domains** → добавь домен, пропиши DNS как подскажет Vercel.
-2. Обнови **`NEXT_PUBLIC_SITE_URL`** на `https://твойдомен.com` и снова **Redeploy**.
+Пока сайт только на Vercel-поддомене, в браузере будет **`something.vercel.app`** — так устроен хостинг. **Название во вкладке** (`Pavel.Dranchuk`) и **адрес сайта** — разные вещи.
+
+Чтобы в строке был свой адрес без `vercel.app`:
+
+1. Купи домен (например `paveldranchuk.com` у регистратора).
+2. Vercel → Project → **Settings → Domains** → добавь домен, настрой DNS по инструкции Vercel.
+3. В **Environment Variables** выставь **`NEXT_PUBLIC_SITE_URL`** = `https://твойдомен.com` и в `lib/site-config.ts` обнови **`SITE_CANONICAL_ORIGIN`** на тот же URL → **Redeploy**.
+
+Строка `Pavel.Dranchuk` как URL **недопустима** в браузере (нет такого формата домена); обычно используют `paveldranchuk.com` или `dranchuk.com`.
 
 ---
 
