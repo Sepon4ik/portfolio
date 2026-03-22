@@ -39,11 +39,21 @@ vercel --prod
 
 ---
 
+## Аналитика посещений
+
+1. **Vercel Web Analytics** (уже в коде: `components/SiteAnalytics.tsx` + `@vercel/analytics`):
+   - В Vercel открой проект → вкладка **Analytics** → включи **Web Analytics** (на бесплатном плане есть лимит просмотров).
+   - После деплоя в том же разделе появятся **просмотры страниц**, топ страниц, страны и т.д. Без включения в дашборде данные не собираются.
+
+2. **Google Analytics 4 (по желанию):** создай поток в [Google Analytics](https://analytics.google.com/), скопируй **Measurement ID** (`G-…`), добавь в Vercel **Environment Variables**:
+   - `NEXT_PUBLIC_GA_MEASUREMENT_ID` = `G-XXXXXXXXXX` (Production), затем **Redeploy**.
+
 ## Что уже настроено в коде
 
 - **OG / Twitter / canonical** — `app/layout.tsx` + `metadataBase` из `getSiteUrl()` (`lib/site-config.ts`).
 - **`/robots.txt`**, **`/sitemap.xml`**, **`/manifest.webmanifest`** — генерируются Next’ом.
 - **JSON-LD Person** — `components/SiteJsonLd.tsx`.
+- **Аналитика** — `SiteAnalytics` (Vercel + опционально GA4).
 - Пример переменных — `.env.example`.
 
 ---

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { BackgroundAmbience } from "@/components/BackgroundAmbience";
 import { ConstellationParticles } from "@/components/ConstellationParticles";
+import { SiteAnalytics } from "@/components/SiteAnalytics";
 import { SiteJsonLd } from "@/components/SiteJsonLd";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { TelegramChannelFab } from "@/components/TelegramChannelFab";
@@ -84,6 +85,7 @@ export default function RootLayout({
             </ToastHost>
           </div>
         </div>
+        <SiteAnalytics />
       </body>
     </html>
   );
