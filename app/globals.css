@@ -1,462 +1,125 @@
-@import "lenis/dist/lenis.css";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  color-scheme: dark;
+  --bg: #09090b;
+  --border: rgba(255, 255, 255, 0.06);
+  --accent: #4ade80;
 }
 
-html {
-  overflow-x: hidden;
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: #ffffff;
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+  --font-mono: var(--font-inter);
+}
+
+/* ── Base ── */
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* ── Slide (used inside DeckShell — fixed positioning) ── */
+.slide {
+  height: 100vh;
+  width: 100%;
+}
+
+/* Lock body scroll when slides are stacked */
+body.deck-active {
+  overflow: hidden;
 }
 
 body {
-  @apply bg-[#0a0a0a] text-zinc-100 antialiased;
-  overflow-x: hidden;
-}
-
-/* Нижний отступ под фиксированный Telegram FAB + safe-area iOS */
-@media (max-width: 1023px) {
-  .site-mobile-fab-pad {
-    padding-bottom: max(5.5rem, calc(4.5rem + env(safe-area-inset-bottom, 0px)));
-  }
-}
-
-@keyframes drift {
-  0% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-  100% { transform: translate(0, 0) scale(1); }
-}
-
-.animate-drift {
-  animation: drift 8s infinite alternate ease-in-out;
-}
-
-@keyframes sweep {
-  0% { transform: translateX(-12%) translateY(0); opacity: 0.08; }
-  50% { transform: translateX(8%) translateY(-2%); opacity: 0.16; }
-  100% { transform: translateX(-12%) translateY(0); opacity: 0.08; }
-}
-
-.animate-sweep {
-  animation: sweep 10s infinite ease-in-out;
-}
-
-@keyframes gridShift {
-  0% { background-position: 0 0, 0 0; }
-  50% { background-position: 40px -30px, -30px 40px; }
-  100% { background-position: 80px -60px, -60px 80px; }
-}
-
-.animate-grid-shift {
-  animation: gridShift 28s linear infinite;
-}
-
-/* Soft float on hover — slow, low amplitude, no sharp snap */
-@keyframes hover-bounce {
-  0% {
-    transform: translateY(0);
-  }
-  22% {
-    transform: translateY(-3px);
-  }
-  48% {
-    transform: translateY(-1px);
-  }
-  72% {
-    transform: translateY(-0.5px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.hover-bounce {
-  will-change: transform;
-}
-
-.hover-bounce:hover {
-  animation: hover-bounce 1.05s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-}
-
-/* TZ: subtle hover glow on cards */
-.card-glow-hover {
-  transition:
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
-}
-
-.card-glow-hover:hover {
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.06),
-    0 20px 50px -28px rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.14);
-}
-
-/* Кнопка гайда: явный pointer + лёгкий акцент курсора (подсказка дублируется тултипом) */
-.guide-telegram-cta {
-  cursor: pointer;
-}
-
-/* Виньетка hero — только мобилка (на lg блок скрыт в разметке) */
-.hero-photo-vignette {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  background: radial-gradient(
-    ellipse 96% 90% at 84% 76%,
-    transparent 0%,
-    transparent 34%,
-    rgba(0, 0, 0, 0.18) 54%,
-    rgba(0, 0, 0, 0.62) 76%,
-    #000000 100%
-  );
-}
-
-/* Подложка cyan/violet — только над текстовой зоной на lg, не на фото */
-.hero-portrait-backplate {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  z-index: 0;
   background:
-    radial-gradient(ellipse 68% 78% at 82% 40%, rgba(6, 182, 212, 0.09), transparent 58%),
-    radial-gradient(ellipse 42% 50% at 94% 72%, rgba(139, 92, 246, 0.06), transparent 55%);
+    radial-gradient(ellipse 70% 50% at 20% 0%, rgba(74, 222, 128, 0.04), transparent),
+    radial-gradient(ellipse 70% 50% at 80% 100%, rgba(34, 211, 238, 0.03), transparent),
+    var(--bg);
+  background-attachment: fixed;
 }
 
-@media (min-width: 1024px) {
-  .hero-portrait-backplate {
-    mask-image: linear-gradient(to right, black 0%, black 56%, transparent 68%);
-    -webkit-mask-image: linear-gradient(to right, black 0%, black 56%, transparent 68%);
-  }
-
-  .hero-readability-warm {
-    mask-image: linear-gradient(to right, black 0%, black 54%, transparent 66%);
-    -webkit-mask-image: linear-gradient(to right, black 0%, black 54%, transparent 66%);
-  }
-}
-
-/* Портрет: cover + чуть «отъезд» масштаба и якорь к верху — макушка не срезается */
-.hero-portrait-image {
-  border-radius: 0;
-  object-fit: cover;
-  /* якорь к верхней части кадра исходника */
-  object-position: center 6%;
-  mix-blend-mode: normal;
-  filter: contrast(1.04) brightness(1.03) saturate(1.02);
-  image-rendering: auto;
-  transform: scale(0.97);
-  transform-origin: 50% 10%;
-}
-
-@media (min-width: 1024px) {
-  .hero-portrait-image {
-    /* верх лица в кадре; нижнюю пустоту убираем за счёт cover, без scale — иначе под грудью
-       остаётся «дыра» от уменьшения с transform-origin у макушки */
-    object-position: center 12%;
-    transform: none;
-  }
-}
-
-/* Ореол — чуть плотнее на lg, чтобы визуально тянуться к «весу» текста */
-.hero-portrait-glow {
-  position: absolute;
-  inset: -18% -20% -8% -12%;
-  z-index: 0;
+/* ── Subtle grain ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(
-      ellipse 58% 52% at 50% 36%,
-      rgba(34, 211, 238, 0.28) 0%,
-      rgba(6, 182, 212, 0.1) 38%,
-      transparent 68%
-    ),
-    radial-gradient(
-      ellipse 90% 65% at 55% 78%,
-      rgba(59, 130, 246, 0.06) 0%,
-      transparent 58%
-    );
-  filter: blur(4px);
-  opacity: 0.88;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
 }
 
-@media (min-width: 1024px) {
-  .hero-portrait-glow {
-    opacity: 0.95;
-    background:
-      radial-gradient(
-        ellipse 62% 56% at 48% 38%,
-        rgba(34, 211, 238, 0.34) 0%,
-        rgba(6, 182, 212, 0.12) 40%,
-        transparent 70%
-      ),
-      radial-gradient(
-        ellipse 88% 68% at 56% 76%,
-        rgba(59, 130, 246, 0.09) 0%,
-        transparent 60%
-      );
-  }
+/* ── Accent text gradient ── */
+.text-gradient {
+  background: linear-gradient(135deg, #4ade80 0%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-@media (max-width: 1023px) {
-  .hero-portrait-glow {
-    inset: -12% -15% -5% -15%;
-    opacity: 0.8;
-  }
-}
-
-/* Мобилка: лёгкая рамка; десктоп — без жёсткой коробки, края растворяются в фон */
-.hero-portrait-image-wrap {
+/* ── Photo frame ── */
+.photo-frame {
   position: relative;
-  z-index: 1;
+  border-radius: 14px;
   overflow: hidden;
-  border-radius: 1.25rem;
-  box-shadow:
-    0 16px 48px -18px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
-@media (min-width: 1024px) {
-  .hero-portrait-image-wrap {
-    border-radius: 0;
-    box-shadow: none;
-    /* только смягчение левого края к тексту — полная высота кадра совпадает с сеткой */
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 100%);
-    mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 100%);
-  }
-}
-
-/* Контейнер: фигура «внутри» сцены */
-.hero-portrait-immersive {
+/* ── Window (project card with browser chrome) ── */
+.window {
   position: relative;
-  isolation: isolate;
-  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s, transform 0.3s;
 }
 
-/* Сетка «созвездие» поверх фото: узлы + линии, низкая непрозрачность + screen */
-.hero-digital-grid {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  opacity: 0.08;
-  mix-blend-mode: screen;
-  background-image:
-    radial-gradient(circle at center, rgba(161, 161, 170, 0.55) 0.65px, transparent 0.7px),
-    linear-gradient(rgba(148, 163, 184, 0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
-    repeating-linear-gradient(
-      122deg,
-      transparent 0,
-      transparent 52px,
-      rgba(34, 211, 238, 0.04) 52px,
-      rgba(34, 211, 238, 0.04) 53px
-    );
-  background-size:
-    26px 26px,
-    44px 44px,
-    44px 44px,
-    88px 88px;
-  background-position: 0 0, 0 0, 0 0, 0 0;
-  animation: hero-grid-drift 44s linear infinite;
+.window:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
 }
 
-@keyframes hero-grid-drift {
-  to {
-    background-position:
-      6px 4px,
-      36px 22px,
-      -22px 36px,
-      12px -18px;
-  }
+.window-chrome {
+  background: rgba(255, 255, 255, 0.025);
 }
 
-/* Тёмные оверлеи только над левой колонкой — портрет справа без «тумана» */
-.hero-readability-mask {
-  mask-image: linear-gradient(to right, black 0%, black 48%, rgba(0, 0, 0, 0.45) 56%, transparent 66%);
-  -webkit-mask-image: linear-gradient(to right, black 0%, black 48%, rgba(0, 0, 0, 0.45) 56%, transparent 66%);
+/* ── Tech badge ── */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  transition: all 0.2s;
 }
 
-@media (max-width: 1023px) {
-  .hero-readability-mask {
-    mask-image: linear-gradient(to right, black 0%, black 56%, rgba(0, 0, 0, 0.35) 68%, transparent 82%);
-    -webkit-mask-image: linear-gradient(to right, black 0%, black 56%, rgba(0, 0, 0, 0.35) 68%, transparent 82%);
-  }
+.tech-badge:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.9);
 }
 
-@media (min-width: 1024px) {
-  .hero-readability-mask {
-    mask-image: linear-gradient(to right, black 0%, black 42%, transparent 50%);
-    -webkit-mask-image: linear-gradient(to right, black 0%, black 42%, transparent 50%);
-  }
+/* ── Pulse ring (for "available" badge) ── */
+.pulse-ring {
+  animation: pulseRing 2s ease-out infinite;
 }
 
-/* Hero декор: только слева, без зоны портрета */
-.hero-left-mask {
-  mask-image: linear-gradient(to right, black 0%, black 58%, transparent 82%);
-  -webkit-mask-image: linear-gradient(to right, black 0%, black 58%, transparent 82%);
-}
-
-@media (min-width: 640px) {
-  .hero-left-mask {
-    mask-image: linear-gradient(to right, black 0%, black 52%, transparent 78%);
-    -webkit-mask-image: linear-gradient(to right, black 0%, black 52%, transparent 78%);
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-left-mask {
-    mask-image: linear-gradient(to right, black 0%, black 46%, transparent 72%);
-    -webkit-mask-image: linear-gradient(to right, black 0%, black 46%, transparent 72%);
-  }
-}
-
-/* Фоновая музыка: мини-«волны» / эквалайзер */
-@keyframes ambience-waves-pulse {
-  0%,
-  100% {
-    transform: scaleY(0.3);
-  }
-  50% {
-    transform: scaleY(1);
-  }
-}
-
-.ambience-waves {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 3px;
-  height: 22px;
-  min-width: 34px;
-  padding: 0 4px;
-}
-
-.ambience-waves__bar {
-  width: 3px;
-  height: 15px;
-  border-radius: 9999px;
-  background: linear-gradient(to top, rgb(8 145 178 / 0.4), rgb(34 211 238 / 0.95));
-  transform-origin: bottom center;
-  flex-shrink: 0;
-}
-
-.ambience-waves--idle .ambience-waves__bar:nth-child(1) {
-  transform: scaleY(0.38);
-}
-.ambience-waves--idle .ambience-waves__bar:nth-child(2) {
-  transform: scaleY(0.68);
-}
-.ambience-waves--idle .ambience-waves__bar:nth-child(3) {
-  transform: scaleY(0.52);
-}
-.ambience-waves--idle .ambience-waves__bar:nth-child(4) {
-  transform: scaleY(0.85);
-}
-.ambience-waves--idle .ambience-waves__bar:nth-child(5) {
-  transform: scaleY(0.42);
-}
-
-.ambience-waves--playing .ambience-waves__bar {
-  animation: ambience-waves-pulse 0.82s ease-in-out infinite;
-}
-.ambience-waves--playing .ambience-waves__bar:nth-child(1) {
-  animation-delay: 0ms;
-}
-.ambience-waves--playing .ambience-waves__bar:nth-child(2) {
-  animation-delay: 100ms;
-}
-.ambience-waves--playing .ambience-waves__bar:nth-child(3) {
-  animation-delay: 200ms;
-}
-.ambience-waves--playing .ambience-waves__bar:nth-child(4) {
-  animation-delay: 150ms;
-}
-.ambience-waves--playing .ambience-waves__bar:nth-child(5) {
-  animation-delay: 50ms;
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hover-bounce:hover {
-    animation: none;
-  }
-
-  .card-glow-hover:hover {
-    box-shadow: none;
-  }
-
-  .hero-digital-grid {
-    animation: none;
-  }
-
-  .section-digital-grid {
-    animation: none;
-  }
-
-  .scroll-reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-  }
-
-  .ambience-waves--playing .ambience-waves__bar {
-    animation: none;
-    transform: scaleY(0.62);
-  }
-}
-
-/* Секции портфолио: та же «созвездие»-сетка, что в hero */
-.section-digital-grid {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.09;
-  mix-blend-mode: screen;
-  background-image:
-    radial-gradient(circle at center, rgba(161, 161, 170, 0.55) 0.65px, transparent 0.7px),
-    linear-gradient(rgba(148, 163, 184, 0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
-    repeating-linear-gradient(
-      122deg,
-      transparent 0,
-      transparent 52px,
-      rgba(34, 211, 238, 0.05) 52px,
-      rgba(34, 211, 238, 0.05) 53px
-    );
-  background-size:
-    26px 26px,
-    44px 44px,
-    44px 44px,
-    88px 88px;
-  background-position: 0 0, 0 0, 0 0, 0 0;
-  animation: hero-grid-drift 44s linear infinite;
-}
-
-/* Плавное появление при скролле — без filter: blur (очень тяжело при скролле/композитинге) */
-.scroll-reveal {
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
-  transition:
-    opacity 0.65s cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.scroll-reveal-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-/* Glass card spec: 12px, 1px border ~10% white */
-.glass-panel {
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(0, 0, 0, 0.38);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  .pulse-ring { animation: none; }
 }

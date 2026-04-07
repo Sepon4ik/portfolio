@@ -36,4 +36,16 @@ export const skillMiniCases: Record<string, { title: string; body: string }> = {
     title: "Monetization Strategy",
     body: "Pairing game-feel with economy health: pacing, offers, and analytics without breaking the fantasy. Sustainable LTV alongside player trust.",
   },
+  "AI Agent Architecture": {
+    title: "AI Agent Architecture",
+    body: "Designing multi-agent systems with Claude, GPT, and open-source models. ReAct loops, tool orchestration, and structured output for production-grade reliability.",
+  },
+  "Sales Pipeline Automation": {
+    title: "Sales Pipeline Automation",
+    body: "End-to-end lead gen to booking: scraping, enrichment, scoring, personalized outreach, and CRM sync. Built for B2B agencies and SaaS.",
+  },
+  "Process Design & Ops": {
+    title: "Process Design & Ops",
+    body: "Mapping bottlenecks, designing async workflows, and shipping internal tools that remove friction. From Notion playbooks to custom dashboards.",
+  },
 };
