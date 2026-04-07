@@ -140,38 +140,67 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Credentials — horizontal strip with founders proof */}
-            <div className="mt-auto pt-5 flex items-center gap-3">
-              <div className="flex gap-2">
-                <div className="photo-frame w-[78px] aspect-[4/3]">
-                  <Image
-                    src="/playrix-poker-1.jpg"
-                    alt="С братьями Бухман — финальный стол"
-                    width={240}
-                    height={180}
-                    className="object-cover w-full h-full"
-                  />
+            {/* Credentials — two proofs side by side */}
+            <div className="mt-auto pt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+              {/* Founders proof */}
+              <div className="flex items-center gap-3">
+                <div className="flex gap-2">
+                  <div className="photo-frame w-[72px] aspect-[4/3]">
+                    <Image
+                      src="/playrix-poker-1.jpg"
+                      alt="С братьями Бухман — финальный стол"
+                      width={240}
+                      height={180}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="photo-frame w-[72px] aspect-[4/3]">
+                    <Image
+                      src="/playrix-poker-2.jpg"
+                      alt="С Игорем и Дмитрием Бухман"
+                      width={240}
+                      height={180}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
                 </div>
-                <div className="photo-frame w-[78px] aspect-[4/3]">
-                  <Image
-                    src="/playrix-poker-2.jpg"
-                    alt="С Игорем и Дмитрием Бухман"
-                    width={240}
-                    height={180}
-                    className="object-cover w-full h-full"
-                  />
+                <div className="flex flex-col">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#4ade80]/85">
+                    🏆 Playrix Top 100
+                  </span>
+                  <span className="text-[11px] leading-[1.35] text-white/55 mt-0.5">
+                    С Игорем и Дмитрием Бухман
+                    <br />
+                    <span className="text-white/35">— основателями Playrix</span>
+                  </span>
                 </div>
               </div>
-              <div className="flex flex-col">
-                <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#4ade80]/85">
-                  🏆 Playrix Top 100
-                </span>
-                <span className="text-[11px] leading-[1.35] text-white/55 mt-0.5">
-                  С Игорем и Дмитрием Бухман
-                  <br />
-                  <span className="text-white/35">— основателями Playrix</span>
-                </span>
-              </div>
+
+              {/* Vertical divider */}
+              <div className="hidden lg:block h-12 w-px bg-white/8" />
+
+              {/* LinkedIn public proof */}
+              <a
+                href="https://www.linkedin.com/in/pavel-dranchuk-202b37125/"
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-3 rounded-lg border border-[#0A66C2]/25 bg-[#0A66C2]/[0.06] px-3 py-2 transition hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/[0.12]"
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-[#0A66C2] text-white font-bold text-[14px]">
+                  in
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-serif text-[16px] font-semibold tracking-tight text-white">
+                      5 842
+                    </span>
+                    <span className="text-[10px] text-white/45">подписчиков</span>
+                  </div>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#0A66C2]/90">
+                    Публичный менеджер · LinkedIn ↗
+                  </span>
+                </div>
+              </a>
             </div>
           </div>
 
