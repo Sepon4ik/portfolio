@@ -1,6 +1,7 @@
 import Image from "next/image";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import DeckShell from "./components/DeckShell";
+import TournamentPhotos from "./components/TournamentPhotos";
 
 const telegramUrl = "https://t.me/pav_sep";
 
@@ -142,37 +143,9 @@ export default function Home() {
 
             {/* Credentials — three uniform proof cards */}
             <div className="mt-auto pt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {/* 1. Founders proof */}
+              {/* 1. Founders proof — clickable photos */}
               <div className="flex items-center gap-3 rounded-lg border border-[#4ade80]/25 bg-[#4ade80]/[0.05] px-3 py-2 h-[60px]">
-                <div className="flex gap-1 shrink-0">
-                  <div className="photo-frame w-[36px] h-[44px] overflow-hidden">
-                    <Image
-                      src="/playrix-poker-1.jpg"
-                      alt="Финальный стол"
-                      width={120}
-                      height={150}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="photo-frame w-[36px] h-[44px] overflow-hidden">
-                    <Image
-                      src="/playrix-poker-2.jpg"
-                      alt="С братьями Бухман"
-                      width={120}
-                      height={150}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="photo-frame w-[36px] h-[44px] overflow-hidden">
-                    <Image
-                      src="/playrix-poker-3.jpg"
-                      alt="Награждение"
-                      width={120}
-                      height={150}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                </div>
+                <TournamentPhotos />
                 <div className="flex flex-col min-w-0">
                   <span className="font-serif text-[13px] font-semibold tracking-tight text-white truncate">
                     🏆 Playrix Top 100
