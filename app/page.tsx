@@ -145,7 +145,7 @@ export default function Home() {
               {/* Founders proof */}
               <div className="flex items-center gap-3">
                 <div className="flex gap-2">
-                  <div className="photo-frame w-[72px] aspect-[4/3]">
+                  <div className="photo-frame w-[68px] aspect-[4/3]">
                     <Image
                       src="/playrix-poker-1.jpg"
                       alt="С братьями Бухман — финальный стол"
@@ -154,10 +154,19 @@ export default function Home() {
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <div className="photo-frame w-[72px] aspect-[4/3]">
+                  <div className="photo-frame w-[68px] aspect-[4/3]">
                     <Image
                       src="/playrix-poker-2.jpg"
                       alt="С Игорем и Дмитрием Бухман"
+                      width={240}
+                      height={180}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="photo-frame w-[68px] aspect-[4/3]">
+                    <Image
+                      src="/playrix-poker-3.jpg"
+                      alt="Награждение Playrix Top 100"
                       width={240}
                       height={180}
                       className="object-cover w-full h-full"
