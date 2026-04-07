@@ -598,17 +598,17 @@ function Slide2() {
         </div>
       </header>
 
-      <main className="flex-1 mx-auto w-full max-w-[1340px] px-10 pb-5 grid grid-rows-[auto_auto_auto_1fr_auto] gap-3 min-h-0">
+      <main className="flex-1 mx-auto w-full max-w-[1340px] px-10 pb-4 grid grid-rows-[auto_auto_auto_1fr_auto] gap-2.5 min-h-0">
         {/* ── Title ── */}
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#4ade80]/80 mb-2">
+            <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-[#4ade80]/80 mb-1">
               AI-агентство · Бизнес-план
             </div>
-            <h2 className="font-serif text-[clamp(1.8rem,3vw,2.6rem)] leading-[1] font-semibold tracking-tight">
+            <h2 className="font-serif text-[clamp(1.5rem,2.5vw,2.1rem)] leading-[1] font-semibold tracking-tight">
               4 направления, 1 платформа
             </h2>
-            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">
               Год 1 · $350K выручка · M8 безубыточность · $32K прибыль/мес к М12
             </p>
           </div>
@@ -618,9 +618,9 @@ function Slide2() {
               { v: "$78K", l: "К М12 / мес" },
               { v: "41%", l: "Маржа" },
             ].map((s) => (
-              <div key={s.l} className="border-t border-white/12 pt-2">
-                <div className="font-serif text-[1.4rem] font-semibold tracking-tight">{s.v}</div>
-                <div className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
+              <div key={s.l} className="border-t border-white/12 pt-1.5">
+                <div className="font-serif text-[1.2rem] font-semibold tracking-tight">{s.v}</div>
+                <div className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
                   {s.l}
                 </div>
               </div>
@@ -629,18 +629,18 @@ function Slide2() {
         </div>
 
         {/* ── 4 Directions ── */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
           {directions.map((d) => (
             <div
               key={d.name}
-              className="relative rounded-xl border border-white/8 bg-white/[0.02] p-4 transition hover:border-white/15 hover:bg-white/[0.04]"
+              className="relative rounded-xl border border-white/8 bg-white/[0.02] p-3 transition hover:border-white/15 hover:bg-white/[0.04]"
             >
               <div
-                className="absolute top-0 left-4 right-4 h-px"
+                className="absolute top-0 left-3 right-3 h-px"
                 style={{ background: `linear-gradient(90deg, ${d.accent}, transparent)` }}
               />
-              <div className="flex items-start justify-between gap-2 mb-2">
-                <h3 className="font-serif text-[15px] font-semibold tracking-tight">{d.name}</h3>
+              <div className="flex items-start justify-between gap-2 mb-1.5">
+                <h3 className="font-serif text-[14px] font-semibold tracking-tight">{d.name}</h3>
                 <span
                   className="font-mono text-[9px] uppercase tracking-wider"
                   style={{ color: d.accent }}
@@ -648,8 +648,8 @@ function Slide2() {
                   {d.start}
                 </span>
               </div>
-              <p className="text-[11px] leading-snug text-white/50 mb-3 line-clamp-2">{d.desc}</p>
-              <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px]">
+              <p className="text-[10.5px] leading-snug text-white/50 mb-2 line-clamp-2">{d.desc}</p>
+              <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 text-[10px]">
                 <div className="text-white/35">Чек</div>
                 <div className="text-right font-medium text-white/85">{d.check}</div>
                 <div className="text-white/35">К М12</div>
@@ -665,38 +665,38 @@ function Slide2() {
 
         {/* ── Sales channels — first revenue sources ── */}
         <div>
-          <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#4ade80]/80 mb-2">
+          <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-[#4ade80]/80 mb-1.5">
             Откуда первые продажи
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             {salesChannels.map((s) => (
               <div
                 key={s.title}
-                className="rounded-lg border border-white/8 bg-white/[0.02] p-3 transition hover:border-white/15 hover:bg-white/[0.04]"
+                className="rounded-lg border border-white/8 bg-white/[0.02] px-3 py-2 transition hover:border-white/15 hover:bg-white/[0.04]"
                 style={{ borderLeft: `2px solid ${s.accent}` }}
               >
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-base">{s.icon}</span>
-                  <div className="font-serif text-[14px] font-semibold tracking-tight">
+                <div className="flex items-center gap-2 mb-0.5">
+                  <span className="text-sm">{s.icon}</span>
+                  <div className="font-serif text-[13px] font-semibold tracking-tight">
                     {s.title}
                   </div>
                 </div>
-                <div className="text-[10.5px] text-white/50 leading-snug">{s.note}</div>
+                <div className="text-[10px] text-white/50 leading-snug">{s.note}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* ── Roadmap + Team ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-4 min-h-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-3 min-h-0 overflow-hidden">
           {/* Roadmap */}
-          <div className="rounded-xl border border-white/8 bg-white/[0.02] p-4 flex flex-col min-h-0">
-            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/35 mb-3">
+          <div className="rounded-xl border border-white/8 bg-white/[0.02] p-3 flex flex-col min-h-0 overflow-hidden">
+            <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35 mb-2">
               Дорожная карта · 12 месяцев
             </div>
-            <div className="grid grid-cols-4 gap-3 flex-1">
+            <div className="grid grid-cols-4 gap-2.5 flex-1 min-h-0">
               {phases.map((p, i) => (
-                <div key={p.period} className="relative flex flex-col">
+                <div key={p.period} className="relative flex flex-col min-h-0">
                   <div className="flex items-baseline justify-between gap-2">
                     <div className="font-mono text-[9px] uppercase tracking-wider text-white/40">
                       {p.period}
@@ -708,26 +708,26 @@ function Slide2() {
                       {p.invest}
                     </span>
                   </div>
-                  <div className="mt-1 font-serif text-[14px] font-semibold tracking-tight">
+                  <div className="mt-0.5 font-serif text-[13px] font-semibold tracking-tight leading-tight">
                     {p.title}
                   </div>
-                  <ul className="mt-2 space-y-1 flex-1">
+                  <ul className="mt-1.5 space-y-0.5 flex-1 overflow-hidden">
                     {p.items.map((it) => (
-                      <li key={it} className="text-[10px] leading-snug text-white/50 flex gap-1.5">
-                        <span className="text-[#4ade80]/60 mt-0.5">·</span>
+                      <li key={it} className="text-[9.5px] leading-snug text-white/50 flex gap-1">
+                        <span className="text-[#4ade80]/60 mt-0">·</span>
                         <span>{it}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-2 pt-2 border-t border-white/8 space-y-0.5">
-                    <div className="flex items-baseline justify-between gap-2">
+                  <div className="mt-1.5 pt-1.5 border-t border-white/8 space-y-0">
+                    <div className="flex items-baseline justify-between gap-1">
                       <span className="font-mono text-[9px] text-white/40">Выручка</span>
-                      <span className="text-[10px] font-medium text-white/85 text-right">{p.rev}</span>
+                      <span className="text-[9.5px] font-medium text-white/85 text-right">{p.rev}</span>
                     </div>
-                    <div className="flex items-baseline justify-between gap-2">
+                    <div className="flex items-baseline justify-between gap-1">
                       <span className="font-mono text-[9px] text-white/40">Транш</span>
                       <span
-                        className="text-[10px] font-medium text-right"
+                        className="text-[9.5px] font-medium text-right"
                         style={{ color: p.invest === "—" ? "rgba(255,255,255,0.3)" : "#4ade80" }}
                       >
                         {p.investNote}
@@ -735,7 +735,7 @@ function Slide2() {
                     </div>
                   </div>
                   {i < phases.length - 1 && (
-                    <div className="hidden lg:block absolute -right-2 top-3 text-white/15 text-xs">→</div>
+                    <div className="hidden lg:block absolute -right-1.5 top-2 text-white/15 text-[10px]">→</div>
                   )}
                 </div>
               ))}
@@ -743,64 +743,61 @@ function Slide2() {
           </div>
 
           {/* Team */}
-          <div className="rounded-xl border border-white/8 bg-white/[0.02] p-4 flex flex-col min-h-0">
-            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/35 mb-3">
+          <div className="rounded-xl border border-white/8 bg-white/[0.02] p-3 flex flex-col min-h-0 overflow-hidden">
+            <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35 mb-2">
               Команда · рост по фазам
             </div>
-            <div className="space-y-2.5 flex-1">
+            <div className="grid grid-cols-1 gap-1.5 flex-1 min-h-0">
               {team.map((t) => (
                 <div
                   key={t.phase}
-                  className="flex items-center gap-3 rounded-lg border border-white/6 bg-white/[0.02] px-3 py-2"
+                  className="flex items-center gap-2.5 rounded-md border border-white/6 bg-white/[0.02] px-2.5 py-1.5"
                 >
                   <div
-                    className="flex items-center justify-center h-9 w-9 rounded-full border font-serif text-[15px] font-semibold shrink-0"
+                    className="flex items-center justify-center h-7 w-7 rounded-full border font-serif text-[13px] font-semibold shrink-0"
                     style={{ borderColor: `${t.color}66`, color: t.color, background: `${t.color}10` }}
                   >
                     {t.count}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-white/40">
+                    <div className="flex items-center gap-1.5 leading-none">
+                      <span className="font-mono text-[8px] uppercase tracking-wider text-white/40">
                         {t.phase}
                       </span>
                       {t.showBookkeeper && (
-                        <span className="rounded-full border border-[#fb923c]/40 bg-[#fb923c]/10 px-1.5 py-0 text-[8px] font-mono uppercase tracking-wider text-[#fb923c]">
+                        <span className="rounded-full border border-[#fb923c]/40 bg-[#fb923c]/10 px-1.5 py-0 text-[7.5px] font-mono uppercase tracking-wider text-[#fb923c]">
                           + бухгалтер
                         </span>
                       )}
                     </div>
-                    <div className="text-[12px] font-medium text-white/85 leading-tight">
+                    <div className="text-[11px] font-medium text-white/85 leading-tight mt-0.5">
                       {t.label}
                     </div>
-                    <div className="text-[10px] text-white/40 leading-tight">{t.note}</div>
+                    <div className="text-[9px] text-white/40 leading-tight truncate">{t.note}</div>
                   </div>
                 </div>
               ))}
-            </div>
-            <div className="mt-3 text-[10px] text-white/40 leading-snug">
-              К М12: <strong className="text-white/70">основатель + менеджер + 3 продюсера + бухгалтер + AI</strong>
             </div>
           </div>
         </div>
 
         {/* ── $35K Budget allocation by phase ── */}
         <div>
-          <div className="flex items-baseline justify-between mb-2 flex-wrap gap-x-4">
-            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#4ade80]/80">
+          <div className="flex items-baseline justify-between mb-1.5 flex-wrap gap-x-4">
+            <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-[#4ade80]/80">
               Распределение $35K · 100% в бизнес
             </div>
-            <div className="font-mono text-[10px] uppercase tracking-wider text-white/35">
+            <div className="font-mono text-[9px] uppercase tracking-wider text-white/35">
               ЗП основателя — только из прибыли · К М24 партнёру $40K/мес
             </div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
             {budget.map((b, i) => {
               const isZero = b.sum === "$0";
               return (
                 <div
                   key={b.period}
-                  className={`relative rounded-lg border p-3 ${
+                  className={`relative rounded-lg border px-3 py-2 ${
                     i === 0
                       ? "border-[#4ade80]/35 bg-[#4ade80]/[0.04]"
                       : isZero
@@ -808,19 +805,19 @@ function Slide2() {
                       : "border-white/8 bg-white/[0.02]"
                   }`}
                 >
-                  <div className="flex items-baseline justify-between mb-1.5">
+                  <div className="flex items-baseline justify-between mb-1">
                     <span className="font-mono text-[9px] uppercase tracking-wider text-white/40">
                       {b.period}
                     </span>
                     <span
-                      className="font-serif text-[1.1rem] font-semibold tracking-tight"
+                      className="font-serif text-[1rem] font-semibold tracking-tight"
                       style={{ color: isZero ? "rgba(255,255,255,0.35)" : "#4ade80" }}
                     >
                       {b.sum}
                     </span>
                   </div>
                   {!isZero && (
-                    <div className="h-1 w-full rounded-full bg-white/5 overflow-hidden mb-2">
+                    <div className="h-0.5 w-full rounded-full bg-white/5 overflow-hidden mb-1.5">
                       <div
                         className="h-full rounded-full"
                         style={{
@@ -830,15 +827,15 @@ function Slide2() {
                       />
                     </div>
                   )}
-                  <ul className="space-y-1">
+                  <ul className="space-y-0.5">
                     {b.items.map((it) => (
                       <li
                         key={it.l}
-                        className="flex items-baseline justify-between gap-2 text-[10px] leading-snug"
+                        className="flex items-baseline justify-between gap-2 text-[9.5px] leading-tight"
                       >
                         <span className="text-white/55 truncate">{it.l}</span>
                         <span
-                          className="font-mono text-[10px] font-medium shrink-0"
+                          className="font-mono text-[9.5px] font-medium shrink-0"
                           style={{
                             color: it.v === "—" ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.85)",
                           }}
