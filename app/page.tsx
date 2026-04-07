@@ -206,7 +206,31 @@ export default function Home() {
                     <span className="text-[10px] text-white/45">подписчиков</span>
                   </div>
                   <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#0A66C2]/90">
-                    Публичный менеджер · LinkedIn ↗
+                    LinkedIn ↗
+                  </span>
+                </div>
+              </a>
+
+              {/* Telegram channel proof */}
+              <a
+                href="https://t.me/homo_management"
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-3 rounded-lg border border-[#229ED9]/25 bg-[#229ED9]/[0.06] px-3 py-2 transition hover:border-[#229ED9]/50 hover:bg-[#229ED9]/[0.12]"
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-[#229ED9] text-white">
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
+                    <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
+                  </svg>
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-serif text-[16px] font-semibold tracking-tight text-white">
+                      @homo_management
+                    </span>
+                  </div>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#229ED9]/90">
+                    Telegram канал · автор ↗
                   </span>
                 </div>
               </a>
@@ -480,6 +504,28 @@ const investorBenefits = [
   { icon: "⚙️", title: "AI-инструменты под бизнес", note: "Кастомные боты, дашборды, автоматизация рутины" },
 ];
 
+// First sales channels
+const salesChannels = [
+  {
+    icon: "👤",
+    title: "Личный бренд",
+    note: "LinkedIn 5 842 подписчиков · Telegram-канал @homo_management · 15 лет публичной репутации",
+    accent: "#4ade80",
+  },
+  {
+    icon: "🤝",
+    title: "Тёплые лиды LinkedIn",
+    note: "6 000+ CEO, HR, ЛПР в нетворке. Прямой outreach без холодного старта.",
+    accent: "#22d3ee",
+  },
+  {
+    icon: "🎮",
+    title: "Geymdev-связи",
+    note: "Playrix · Wargaming · Say Games · Nexters · Softeq · Belka (Tripledot)",
+    accent: "#a855f7",
+  },
+];
+
 // $35K investment allocation by phase — 100% в бизнес, ЗП основателя только из прибыли
 const budget = [
   {
@@ -559,7 +605,7 @@ function Slide2() {
         </div>
       </header>
 
-      <main className="flex-1 mx-auto w-full max-w-[1340px] px-10 pb-5 grid grid-rows-[auto_auto_1fr_auto] gap-4 min-h-0">
+      <main className="flex-1 mx-auto w-full max-w-[1340px] px-10 pb-5 grid grid-rows-[auto_auto_auto_1fr_auto] gap-3 min-h-0">
         {/* ── Title ── */}
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
@@ -622,6 +668,30 @@ function Slide2() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* ── Sales channels — first revenue sources ── */}
+        <div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#4ade80]/80 mb-2">
+            Откуда первые продажи
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {salesChannels.map((s) => (
+              <div
+                key={s.title}
+                className="rounded-lg border border-white/8 bg-white/[0.02] p-3 transition hover:border-white/15 hover:bg-white/[0.04]"
+                style={{ borderLeft: `2px solid ${s.accent}` }}
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-base">{s.icon}</span>
+                  <div className="font-serif text-[14px] font-semibold tracking-tight">
+                    {s.title}
+                  </div>
+                </div>
+                <div className="text-[10.5px] text-white/50 leading-snug">{s.note}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* ── Roadmap + Team ── */}
