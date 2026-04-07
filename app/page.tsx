@@ -140,96 +140,89 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Credentials — two proofs side by side */}
-            <div className="mt-auto pt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
-              {/* Founders proof */}
-              <div className="flex items-center gap-3">
-                <div className="flex gap-2">
-                  <div className="photo-frame w-[68px] aspect-[4/3]">
+            {/* Credentials — three uniform proof cards */}
+            <div className="mt-auto pt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {/* 1. Founders proof */}
+              <div className="flex items-center gap-3 rounded-lg border border-[#4ade80]/25 bg-[#4ade80]/[0.05] px-3 py-2 h-[60px]">
+                <div className="flex gap-1 shrink-0">
+                  <div className="photo-frame w-[36px] h-[44px] overflow-hidden">
                     <Image
                       src="/playrix-poker-1.jpg"
-                      alt="С братьями Бухман — финальный стол"
-                      width={240}
-                      height={180}
+                      alt="Финальный стол"
+                      width={120}
+                      height={150}
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <div className="photo-frame w-[68px] aspect-[4/3]">
+                  <div className="photo-frame w-[36px] h-[44px] overflow-hidden">
                     <Image
                       src="/playrix-poker-2.jpg"
-                      alt="С Игорем и Дмитрием Бухман"
-                      width={240}
-                      height={180}
+                      alt="С братьями Бухман"
+                      width={120}
+                      height={150}
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <div className="photo-frame w-[68px] aspect-[4/3]">
+                  <div className="photo-frame w-[36px] h-[44px] overflow-hidden">
                     <Image
                       src="/playrix-poker-3.jpg"
-                      alt="Награждение Playrix Top 100"
-                      width={240}
-                      height={180}
+                      alt="Награждение"
+                      width={120}
+                      height={150}
                       className="object-cover w-full h-full"
                     />
                   </div>
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#4ade80]/85">
+                <div className="flex flex-col min-w-0">
+                  <span className="font-serif text-[13px] font-semibold tracking-tight text-white truncate">
                     🏆 Playrix Top 100
                   </span>
-                  <span className="text-[11px] leading-[1.35] text-white/55 mt-0.5">
-                    С Игорем и Дмитрием Бухман
-                    <br />
-                    <span className="text-white/35">— основателями Playrix</span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#4ade80]/90 truncate">
+                    С братьями Бухман
                   </span>
                 </div>
               </div>
 
-              {/* Vertical divider */}
-              <div className="hidden lg:block h-12 w-px bg-white/8" />
-
-              {/* LinkedIn public proof */}
+              {/* 2. LinkedIn proof */}
               <a
                 href="https://www.linkedin.com/in/pavel-dranchuk-202b37125/"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-3 rounded-lg border border-[#0A66C2]/25 bg-[#0A66C2]/[0.06] px-3 py-2 transition hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/[0.12]"
+                className="group flex items-center gap-3 rounded-lg border border-[#0A66C2]/25 bg-[#0A66C2]/[0.06] px-3 py-2 h-[60px] transition hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/[0.12]"
               >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-[#0A66C2] text-white font-bold text-[14px]">
+                <div className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded bg-[#0A66C2] text-white font-bold text-[18px]">
                   in
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="font-serif text-[16px] font-semibold tracking-tight text-white">
+                    <span className="font-serif text-[15px] font-semibold tracking-tight text-white">
                       5 842
                     </span>
                     <span className="text-[10px] text-white/45">подписчиков</span>
                   </div>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#0A66C2]/90">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#0A66C2]/90 truncate">
                     LinkedIn ↗
                   </span>
                 </div>
               </a>
 
-              {/* Telegram channel proof */}
+              {/* 3. Telegram channel proof */}
               <a
                 href="https://t.me/homo_management"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-3 rounded-lg border border-[#229ED9]/25 bg-[#229ED9]/[0.06] px-3 py-2 transition hover:border-[#229ED9]/50 hover:bg-[#229ED9]/[0.12]"
+                className="group flex items-center gap-3 rounded-lg border border-[#229ED9]/25 bg-[#229ED9]/[0.06] px-3 py-2 h-[60px] transition hover:border-[#229ED9]/50 hover:bg-[#229ED9]/[0.12]"
               >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-[#229ED9] text-white">
-                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
+                <div className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded bg-[#229ED9] text-white">
+                  <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor">
                     <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
                   </svg>
                 </div>
-                <div className="flex flex-col">
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="font-serif text-[16px] font-semibold tracking-tight text-white">
-                      @homo_management
-                    </span>
-                  </div>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#229ED9]/90">
+                <div className="flex flex-col min-w-0">
+                  <span className="font-serif text-[14px] font-semibold tracking-tight text-white truncate">
+                    @homo_management
+                  </span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#229ED9]/90 truncate">
                     Telegram канал · автор ↗
                   </span>
                 </div>
